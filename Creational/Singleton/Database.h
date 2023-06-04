@@ -20,6 +20,7 @@ public:
         {
             cout << "Database::GetInstance(): Making a new instance" << endl;
             db = new Database();
+            return db;
         }
         else
         {
