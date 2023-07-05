@@ -1,3 +1,5 @@
+#ifndef NAMESPACE_H
+#define NAMESPACE_H
 namespace pizza
 {
     enum Size
@@ -6,9 +8,10 @@ namespace pizza
         Classic = 1,
         Large = 2
     };
+
     enum Crust
     {
-        Classic = 0,
+        Traditional = 0,
         Stuffed = 1,
         DeepPan = 2,
         Thin = 3
@@ -22,3 +25,5 @@ namespace pizza
         Mushrooms = 3
     };
 }
+
+#endif

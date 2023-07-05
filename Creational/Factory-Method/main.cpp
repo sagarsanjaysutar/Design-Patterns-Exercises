@@ -19,6 +19,9 @@ int main()
     // The client can use the product without worrying about it's kind.
     transport->deliver();
 
+    // Pointers need to be deleted as they are created on heap,
+    // as opposed to direct object created on stack whose lifetime is managed automatically.
     delete transport;
+
     return 0;
 }
