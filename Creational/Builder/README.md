@@ -3,7 +3,7 @@
 
 ## _A creational design pattern_
 
-The current design consists of a `iPizzaBuilder` interface which includes common steps to build a pizza. Various types of Pizza can be made by implementing this interface, in this case, we have PepperPassionBuilder and GreekBuilder.
+The current design consists of a `iPizzaBuilder` interface which includes common steps to build a pizza. Various types of Pizza can be made by implementing this interface, in this case, we have PepperPassionBuilder.
 The unique part of this builder interface is that the client gets to make the pizza step-by-step and in a clean way.
 
 Usage:
@@ -23,3 +23,9 @@ A bad alternative to this design would be to have a base `Pizza` class and then 
 
 Another alternative would be to have one giant Pizza constructor which have boolean parameters for configuration like,
 `Pizza(bool isSmall, bool hasCheese, bool hasThinCrust,....) resulting into ugly constructor.
+
+## Questions
+1. Can the product be modified onces the builder builts it?
+   - Product is immutable, once built. [Refer](https://stackoverflow.com/a/1953567)
+2. Is it compulsory that all builders share common method construction steps? What if Concrete builder A has more configs than base builder interface?
+   - Yes. Concrete A can have more configs, but it needs to implement all base builder's methods. 121 - Dive Into Design Pattern

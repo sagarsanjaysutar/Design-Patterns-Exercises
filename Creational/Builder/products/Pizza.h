@@ -9,25 +9,25 @@ using namespace std;
 class Pizza
 {
 public:
-    Pizza() : size(pizza::Size::Classic),
-              crustType(pizza::Crust::Traditional),
-              toppings({{pizza::Topping::NoTopping, getToppingName(pizza::Topping::NoTopping)}})
+    Pizza() : m_size(pizza::Size::Classic),
+              m_crustType(pizza::Crust::Traditional),
+              m_toppings({{pizza::Topping::NoTopping, getToppingName(pizza::Topping::NoTopping)}})
     {
-        cout << "Pizza::Pizza() " << this << endl;
+        cout << "Pizza::Pizza(): Constructing base pizza " << this << endl;
     }
     ~Pizza()
     {
-        cout << "Pizza::~Pizza()" << this << endl;
+        cout << "Pizza::~Pizza() Destructing base pizza " << this << endl;
     }
 
     void addTopping(pizza::Topping topping)
     {
-        std::multimap<pizza::Topping, std::string>::iterator toppingsItr = toppings.find(pizza::Topping::NoTopping);
-        if (toppingsItr != toppings.end() && toppings.size() == 1)
+        std::multimap<pizza::Topping, std::string>::iterator toppingsItr = m_toppings.find(pizza::Topping::NoTopping);
+        if (toppingsItr != m_toppings.end() && m_toppings.size() == 1)
         {
-            toppings.clear();
+            m_toppings.clear();
         }
-        toppings.insert({topping, getToppingName(topping)});
+        m_toppings.insert({topping, getToppingName(topping)});
     }
 
     std::string getSizeName(pizza::Size value)
@@ -81,20 +81,22 @@ public:
 
     void printPizza()
     {
-        cout << "=========Pizza======= " << this << endl;
-        cout << "Size: " << getSizeName(size) << endl;
-        cout << "Crust: " << getCrustName(crustType) << endl;
+        cout << "\n========= " << this << " Pizza Info ======= " << endl;
+        cout << "Size: " << getSizeName(m_size) << endl;
+        cout << "Crust: " << getCrustName(m_crustType) << endl;
+
         std::multimap<pizza::Topping, std::string>::iterator toppingsItr;
-        for (toppingsItr = toppings.begin(); toppingsItr != toppings.end(); ++toppingsItr)
+        for (toppingsItr = m_toppings.begin(); toppingsItr != m_toppings.end(); ++toppingsItr)
         {
             cout << "Topping: " << getToppingName(toppingsItr->first) << endl;
         }
-        cout << "=====================" << endl;
+        cout << "=====================\n"
+             << endl;
     }
 
-    pizza::Size size;
-    pizza::Crust crustType;
-    std::multimap<pizza::Topping, std::string> toppings;
+    pizza::Size m_size;
+    pizza::Crust m_crustType;
+    std::multimap<pizza::Topping, std::string> m_toppings;
 };
 
 #endif

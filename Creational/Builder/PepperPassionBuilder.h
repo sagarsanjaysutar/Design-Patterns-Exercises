@@ -19,16 +19,17 @@ public:
     ~PepperPassionBuilder()
     {
         cout << "PepperPassionBuilder::~PepperPassionBuilder()" << endl;
+        delete m_pizza;
     }
 
     virtual void setSize(pizza::Size size) override
     {
-        m_pizza->size = size;
+        m_pizza->m_size = size;
     }
 
     virtual void setCrust(pizza::Crust crustType) override
     {
-        m_pizza->crustType = crustType;
+        m_pizza->m_crustType = crustType;
     }
 
     virtual void addTopping(pizza::Topping topping) override
@@ -36,22 +37,21 @@ public:
         m_pizza->addTopping(topping);
     }
 
+    virtual void reset() override
+    {
+        m_pizza = new Pizza();
+    }
+
     virtual Pizza *bakePizza() override
     {
-        // Return the final Pizza and reset it.
+        // Return the final Pizza and reset the member pizza, in order to work with new one.
         Pizza *tempPizza = m_pizza;
-        cout << "0 " << m_pizza << " === " << tempPizza << endl;
-
-        // <---problem line, this deletes the memory address
-        // that was transfer from m_pizza to tempPizza,
-        // thus we get seg fault when the client (main.cpp) use the returned object
-        m_pizza = nullptr;
-        cout << "1 " << m_pizza << " === " << tempPizza << endl;
+        cout << "Returning baked pizza " << tempPizza << endl;
+        reset();
         return tempPizza;
     }
 
 private:
-    // A pointer is used as we need to manage
     Pizza *m_pizza;
 };
 

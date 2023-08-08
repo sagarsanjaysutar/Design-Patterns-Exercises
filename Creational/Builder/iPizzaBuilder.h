@@ -23,7 +23,7 @@ public:
      * \brief Returns the final baked Pizza.
      */
     virtual Pizza *bakePizza() = 0;
-    // virtual void reset() = 0;
+    virtual void reset() = 0;
 };
 
 #endif
