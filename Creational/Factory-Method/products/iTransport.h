@@ -14,10 +14,7 @@ public:
      * \brief Virtual destructor is necessary in an interface.
      * \ref https://stackoverflow.com/a/3628611/19139887
      */
-    virtual ~iTransport()
-    {
-        cout << "iTransport::~iTransport()" << endl;
-    };
+    virtual ~iTransport() {}
 
     virtual void deliver() = 0;
 };

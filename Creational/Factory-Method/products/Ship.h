@@ -9,14 +9,13 @@
 class Ship : public virtual iTransport
 {
 public:
-    Ship()
-    {
-        cout << "Ship::Ship()" << endl;
-    }
+    Ship() {}
+
     ~Ship()
     {
         cout << "Ship::~Ship()" << endl;
     }
+
     void deliver() override
     {
         cout << "Ship::deliver()" << endl;

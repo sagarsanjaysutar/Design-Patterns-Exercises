@@ -10,10 +10,7 @@
 class SeaLogistics : public Logistics
 {
 public:
-    SeaLogistics()
-    {
-        cout << "SeaLogistics::SeaLogistics()" << endl;
-    };
+    SeaLogistics(){};
 
     ~SeaLogistics()
     {

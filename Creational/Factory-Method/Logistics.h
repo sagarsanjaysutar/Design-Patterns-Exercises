@@ -12,15 +12,8 @@ using namespace std;
 class Logistics
 {
 public:
-    Logistics()
-    {
-        cout << "Logistics::Logistics()" << endl;
-    }
-
-    ~Logistics()
-    {
-        cout << "Logistics::~Logistics()" << endl;
-    }
+    Logistics() {}
+    ~Logistics() {}
 
     /*!
      * \brief Factory Method

@@ -11,17 +11,21 @@
 int main()
 {
     // Creator class
-    SeaLogistics log;
+    RoadLogistics roadLogistics;
+    SeaLogistics seaLogistics;
 
     // Generating product using Factory method.
-    iTransport *transport = log.createTransport();
+    iTransport *roadTransport = roadLogistics.createTransport();
+    iTransport *seaTransport = seaLogistics.createTransport();
 
     // The client can use the product without worrying about it's kind.
-    transport->deliver();
+    roadTransport->deliver();
+    seaTransport->deliver();
 
     // Pointers need to be deleted as they are created on heap,
     // as opposed to direct object created on stack whose lifetime is managed automatically.
-    delete transport;
+    delete roadTransport;
+    delete seaTransport;
 
     return 0;
 }

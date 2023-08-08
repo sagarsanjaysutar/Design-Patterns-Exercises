@@ -10,15 +10,12 @@
 class RoadLogistics : public Logistics
 {
 public:
-    RoadLogistics()
-    {
-        cout << "RoadLogistics::RoadLogistics()" << endl;
-    };
+    RoadLogistics() {}
 
     ~RoadLogistics()
     {
         cout << "RoadLogistics::~RoadLogistics()" << endl;
-    };
+    }
 
     /** \brief Factory method that returns a product.
      */
