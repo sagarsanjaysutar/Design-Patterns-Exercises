@@ -25,7 +25,8 @@ Another alternative would be to have one giant Pizza constructor which have bool
 `Pizza(bool isSmall, bool hasCheese, bool hasThinCrust,....) resulting into ugly constructor.
 
 ## Questions
-1. Can the product be modified onces the builder builts it?
+
+1. Can the product be modified onces the builder builds it?
    - Product is immutable, once built. [Refer](https://stackoverflow.com/a/1953567)
 2. Is it compulsory that all builders share common method construction steps? What if Concrete builder A has more configs than base builder interface?
    - Yes. Concrete A can have more configs, but it needs to implement all base builder's methods. 121 - Dive Into Design Pattern
