@@ -1,7 +1,7 @@
 
 # Builder Pattern
 
-## _A creational design pattern_
+## _A Creational Design Pattern_
 
 The current design consists of a `iPizzaBuilder` interface which includes common steps to build a pizza. Various types of Pizza can be made by implementing this interface, in this case, we have PepperPassionBuilder.
 The unique part of this builder interface is that the client gets to make the pizza step-by-step and in a clean way.
